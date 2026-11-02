@@ -19,12 +19,23 @@
     <!-- HEADER / NAVIGATION -->
     <header>
         <a href="#" class="logo">Léa<span>Maths</span></a>
-        <ul class="nav-links">
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#pedagogie">Pédagogie</a></li>
-            <li><a href="#niveaux">Niveaux & Tarifs</a></li>
-        </ul>
-        <a href="#contact" class="btn btn-primary">Réserver un cours</a>
+
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-wrap" aria-label="Menu principal">
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#pedagogie">Pédagogie</a></li>
+                <li><a href="#niveaux">Niveaux & Tarifs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <a href="#contact" class="btn btn-primary desktop-only">Réserver un cours</a>
     </header>
 
     <!-- SECTION ACCUEIL -->
@@ -117,13 +128,13 @@
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-col">
-                <h3>Léa - Professeure de Maths</h3>
-                <p>Je me déplace à votre domicile pour accompagner votre enfant vers la réussite en mathématiques.</p>
+                <h3>Léa — Professeure de Maths</h3>
+                <p>J’accompagne les élèves à domicile avec une pédagogie claire, bienveillante et adaptée à chaque niveau.</p>
             </div>
             <div class="footer-col">
                 <h3>Contactez-moi</h3>
-                <p><i class="fa-solid fa-phone"></i> 06 XX XX XX XX</p>
-                <p><i class="fa-solid fa-envelope"></i> email@exemple.com</p>
+                <p><i class="fa-solid fa-phone"></i> +33 6 12 34 56 78</p>
+                <p><i class="fa-solid fa-envelope"></i> contact@leamaths.fr</p>
             </div>
             <div class="footer-col">
                 <h3>Zone d'intervention</h3>
@@ -133,9 +144,31 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; Léa Maths . Tous droits réservés.</p>
+            <p>&copy; 2026 Léa Maths. Tous droits réservés.</p>
         </div>
     </footer>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navWrap = document.querySelector('.nav-wrap');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (toggle && navWrap && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navWrap.classList.toggle('open');
+                navLinks.classList.toggle('open', isOpen);
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navWrap.classList.remove('open');
+                    navLinks.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    </script>
 
 </body>
 </html>
