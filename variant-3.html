@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Léa Maths — Variant Chic Chaleureux</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3a3027;
+      --secondary: #b26a3b;
+      --secondary-strong: #8a4e2b;
+      --accent: #d9b16d;
+      --bg: #f5efe8;
+      --soft: #fbf7f2;
+      --text: #2a261f;
+      --muted: #605549;
+      --white: #fffdf9;
+      --shadow: 0 22px 45px rgba(58,48,39,.09);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: 'Inter', sans-serif; color: var(--text);
+      background: linear-gradient(180deg, #f7f0e7 0%, #ffffff 100%);
+    }
+    a { text-decoration: none; }
+    h1,h2,h3,h4 { font-family: 'Poppins', sans-serif; }
+    header {
+      display:flex; align-items:center; justify-content:space-between; padding: 1rem 5%;
+      background: rgba(255,253,249,.9); backdrop-filter: blur(12px); position: sticky; top:0; z-index:10; box-shadow: 0 10px 24px rgba(15,23,42,.04);
+    }
+    .brand { display:flex; align-items:center; gap: .8rem; }
+    .brand-mark {
+      width: 2.8rem; height: 2.8rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      position: relative; box-shadow: 0 10px 24px rgba(58,48,39,.14);
+    }
+    .brand-mark::before {
+      content: "L"; position:absolute; inset:0; display:grid; place-items:center; color: white; font-weight:700; font-size:1.4rem; font-family:'Poppins';
+    }
+    .brand-mark::after {
+      content: "∼"; position:absolute; right:0.46rem; bottom:0.4rem; color:#f3dfbf; font-size:0.8rem; font-weight:700;
+    }
+    .brand-text { font-size: 1.5rem; letter-spacing:-0.04em; }
+    .brand-text strong { color: var(--primary); }
+    .brand-text span { color: var(--secondary-strong); }
+    .nav { display:flex; gap:2rem; list-style:none; margin:0; padding:0; }
+    .nav a { color: var(--text); font-weight:600; }
+    .btn {
+      display:inline-block; padding: 0.9rem 1.45rem; border-radius: 999px; font-weight:700; transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, #594c41 100%); color: white; box-shadow:0 16px 28px rgba(58,48,39,.18); }
+    .btn-accent { background: linear-gradient(135deg, var(--secondary) 0%, #d99a5f 100%); color: white; box-shadow:0 16px 28px rgba(178,106,59,.22); }
+    .hero {
+      display:grid; grid-template-columns:1.1fr .9fr; gap:2.5rem; align-items:center; min-height:80vh; padding:4rem 5%;
+      background: linear-gradient(180deg, var(--soft) 0%, #fff 100%);
+    }
+    .hero h1 { margin:0 0 1.2rem; font-size: clamp(2.5rem, 4vw, 4rem); letter-spacing:-0.05em; color: var(--primary); }
+    .hero p { max-width:540px; color:var(--muted); font-size:1.08rem; line-height:1.7; margin-bottom:2rem; }
+    .hero-cta { display:flex; gap:1rem; flex-wrap:wrap; }
+    .hero-image img { width:min(100%,540px); border-radius:28px; object-fit:cover; box-shadow: var(--shadow); }
+    section { padding:5.5rem 5%; }
+    .section-title { text-align:center; font-size:clamp(2rem,3vw,2.8rem); margin:0 0 3rem; }
+    .grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:2rem; }
+    .card {
+      background: var(--white); border:1px solid rgba(90,82,72,.08); border-radius:20px; padding:2.2rem 1.8rem; text-align:center; box-shadow:0 16px 32px rgba(58,48,39,.04);
+    }
+    .card i { width:4rem; height:4rem; display:inline-grid; place-items:center; border-radius:50%; background: rgba(178,106,59,.1); color:var(--secondary-strong); font-size:1.8rem; margin-bottom:1.1rem; }
+    .card h3 { margin-bottom:0.8rem; }
+    .card p, .card li { color: var(--muted); line-height:1.7; }
+    .card ul { list-style:none; padding:0; margin:1rem 0 0; text-align:left; }
+    .card li { position:relative; padding-left:1.4rem; margin-bottom:.55rem; }
+    .card li::before { content:"✓"; position:absolute; left:0; color: var(--secondary-strong); font-weight:700; }
+    #niveaux { background: var(--bg); }
+    .banner { max-width:820px; margin:3rem auto 0; background: linear-gradient(135deg, rgba(178,106,59,.1) 0%, rgba(217,177,109,.14) 100%); border:1px dashed rgba(138,78,43,.45); border-radius:18px; padding:2rem; text-align:center; }
+    .banner h4 { margin:0 0 .6rem; color: var(--primary); }
+    footer { background: var(--primary); color: var(--white); padding:4rem 5% 2rem; }
+    .footer-grid { max-width:1200px; margin:0 auto 2.5rem; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:2rem; }
+    .footer-col h3 { margin-bottom:1rem; }
+    .footer-col p { color: #efe9e0; margin:0 0 .7rem; }
+    .footer-col i { width:24px; display:inline-block; color: #d9b16d; }
+    .copyright { text-align:center; border-top:1px solid rgba(255,255,255,.12); padding-top:1.5rem; color:#efe9e0; }
+    @media (max-width:760px) {
+      .nav { display:none; }
+      .hero { grid-template-columns:1fr; text-align:center; }
+      .hero p { margin-left:auto; margin-right:auto; }
+      .hero-cta { justify-content:center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand" aria-label="Léa Maths">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div class="brand-text"><strong>Léa</strong><span>Maths</span></div>
+    </div>
+    <nav>
+      <ul class="nav">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#pedagogie">Pédagogie</a></li>
+        <li><a href="#niveaux">Niveaux</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Réserver un cours</a>
+  </header>
+
+  <section class="hero" id="accueil">
+    <div>
+      <h1>Des mathématiques plus simples, plus sûres, plus loin.</h1>
+      <p>Une pédagogie douce et exigeante pour faire grandir la compréhension, la confiance et l’envie d’apprendre.</p>
+      <div class="hero-cta">
+        <a href="#pedagogie" class="btn btn-accent">Découvrir ma méthode</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1513258496091-48168024aec0?auto=format&fit=crop&w=900&q=80" alt="Maths" />
+    </div>
+  </section>
+
+  <section id="pedagogie">
+    <h2 class="section-title">Une pédagogie bienveillante</h2>
+    <div class="grid">
+      <div class="card"><i class="fa-solid fa-crosshairs"></i><h3>Diagnostic</h3><p>J’identifie les points bloquants pour remettre les bases à plat.</p></div>
+      <div class="card"><i class="fa-regular fa-lightbulb"></i><h3>Explication</h3><p>Je reformule les notions avec des exemples concrets et rassurants.</p></div>
+      <div class="card"><i class="fa-solid fa-pen-ruler"></i><h3>Entraînement</h3><p>Je mets l’élève en situation avec des exercices progressifs et motivants.</p></div>
+      <div class="card"><i class="fa-solid fa-chart-line"></i><h3>Confiance</h3><p>Je donne les outils pour passer les obstacles et reprendre confiance.</p></div>
+    </div>
+  </section>
+
+  <section id="niveaux">
+    <h2 class="section-title">Niveaux enseignés</h2>
+    <div class="grid">
+      <div class="card"><i class="fa-solid fa-graduation-cap"></i><h3>Collège</h3><ul><li>Remise à niveau</li><li>Brevet</li><li>Devoirs</li></ul></div>
+      <div class="card"><i class="fa-solid fa-book-open"></i><h3>Lycée</h3><ul><li>Seconde</li><li>Spécialité</li><li>Préparation orale</li></ul></div>
+      <div class="card"><i class="fa-solid fa-user-graduate"></i><h3>Supérieur</h3><ul><li>BTS</li><li>Licence</li><li>Adultes</li></ul></div>
+    </div>
+    <div class="banner">
+      <h4>Tarifs transparents</h4>
+      <p>À partir de 60 € / heure, avec réduction fiscale CESU possible.</p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-grid">
+      <div class="footer-col"><h3>Léa — Professeure de Maths</h3><p>Un accompagnement personnalisé pour avancer sereinement et progresser à son rythme.</p></div>
+      <div class="footer-col"><h3>Contact</h3><p><i class="fa-solid fa-phone"></i> +33 6 12 34 56 78</p><p><i class="fa-solid fa-envelope"></i> contact@leamaths.fr</p></div>
+      <div class="footer-col"><h3>Zone d’intervention</h3><p><i class="fa-solid fa-location-dot"></i> Valence</p><p><i class="fa-solid fa-map-pin"></i> Bourg-lès-Valence</p></div>
+    </div>
+    <div class="copyright">© 2026 Léa Maths. Tous droits réservés.</div>
+  </footer>
+</body>
+</html>

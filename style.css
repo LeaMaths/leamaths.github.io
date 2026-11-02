@@ -1,12 +1,12 @@
 :root {
     --primary: #0f172a;
-    --secondary: #3b82f6;
-    --secondary-strong: #2563eb;
-    --accent: #f97316;
-    --bg-light: #f8fafc;
-    --bg-soft: #eef6ff;
-    --text-main: #334155;
-    --text-muted: #64748b;
+    --secondary: #c8a76b;
+    --secondary-strong: #b89252;
+    --accent: #d97706;
+    --bg-light: #f8f5ef;
+    --bg-soft: #f4efe7;
+    --text-main: #2b3442;
+    --text-muted: #5a6878;
     --white: #ffffff;
     --shadow-soft: 0 20px 45px rgba(15, 23, 42, 0.08);
 }
@@ -52,16 +52,66 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
     text-decoration: none;
     letter-spacing: -0.04em;
 }
 
-.logo span {
+.brand-mark {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 0.9rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+}
+
+.brand-core,
+.brand-pi {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+.brand-core {
+    color: var(--white);
+    font-size: 1.4rem;
+    left: 0.65rem;
+    top: 0.3rem;
+}
+
+.brand-pi {
     color: var(--secondary);
-    font-weight: 300;
+    font-size: 0.9rem;
+    right: 0.4rem;
+    bottom: 0.4rem;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.brand-text {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.brand-text strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.brand-text span {
+    color: var(--secondary-strong);
+    font-weight: 500;
 }
 
 .nav-wrap {
@@ -141,15 +191,15 @@ header {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary) 0%, #1e3a8a 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, #1b2436 100%);
     color: var(--white);
-    box-shadow: 0 16px 30px rgba(37, 99, 235, 0.22);
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.18);
 }
 
 .btn-accent {
-    background: linear-gradient(135deg, var(--accent) 0%, #fdba74 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, #f7b267 100%);
     color: var(--white);
-    box-shadow: 0 16px 30px rgba(249, 115, 22, 0.2);
+    box-shadow: 0 16px 30px rgba(217, 119, 6, 0.24);
 }
 
 .hero {
@@ -174,6 +224,8 @@ header {
     line-height: 1.08;
     letter-spacing: -0.05em;
     margin-bottom: 1.25rem;
+    color: var(--primary);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
 
 .hero-text p {
